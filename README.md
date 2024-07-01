@@ -136,6 +136,12 @@ $$ ji
 \(
 \mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
 \) ji
+\[
+\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
+\]
+```math
+\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
+```
 
 ### Critic (Listener)
 
