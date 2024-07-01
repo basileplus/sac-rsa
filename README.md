@@ -36,7 +36,7 @@ The provided code only aim at showing the parallel between Reinforcement Learnin
 
 Rational Speech Act (RSA) theory is a computational model of pragmatic reasoning in language use. It posits that speakers and listeners reason about each other's mental states to communicate effectively. In RSA, speakers choose utterances (=messages) that are informative and relevant, considering what a rational listener would infer. Listeners, in turn, interpret utterances by reasoning about what a rational speaker would say. This recursive reasoning process helps explain how people derive rich meanings from often ambiguous language.    
 
-![image-4](https://github.com/basileplus/sac-rsa/assets/115778954/c947323f-ca5e-4e24-8371-600614753a21)
+![image](https://github.com/basileplus/sac-rsa/assets/115778954/7a4e242e-0472-4682-8fd8-9e418bb98e50)
 *Figure 1: Rational Speech Act model*
 
 ## Links between RL and RSA
@@ -45,13 +45,14 @@ To better understand the SAC-RSA model and its relationship to traditional RL an
 
 ### Classic RL Framework
 
-![image-1](https://github.com/basileplus/sac-rsa/assets/115778954/70d3f572-a51f-432d-8ddf-2428e4e5e06a)
+![image](https://github.com/basileplus/sac-rsa/assets/115778954/e5026630-1eef-40ad-87f1-c68b7fc05d96)
+
 *Figure 2: Traditional Reinforcement Learning setup with Agent and Environment*
 
 In a classic RL framework, an agent learn a policy $\pi_{\theta_A}(a \mid s)$ to maximize the expected reward $R(s,a)$. The agent interacts with an environment, receiving rewards and updating its policy based on the observed states and actions.
 
 ### SAC-RSA Framework
-![image-2](https://github.com/basileplus/sac-rsa/assets/115778954/ab673ea5-2f78-44b5-8887-289c94dfb945)
+![image](https://github.com/basileplus/sac-rsa/assets/115778954/7ff56abc-a58c-4429-9ae5-763c06ad6c21)
 *Figure 3: Detailed view of SAC-RSA model, showing Speaker as Actor and Listener as Critic*
 
 In SAC, the agent (the speaker) learns a policy $\pi_{\theta_A}(a \mid s)$ to minimize the loss function $\mathcal{L}_{\text{actor}}$. The critic (the listener) learns a value function $Q_{\theta_C}(a,s)$ to minimize the loss function $\mathcal{L}_{\text{critic}}$. The actor uses the value learned by the critic to update its policy. 
