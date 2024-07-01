@@ -55,7 +55,7 @@ In a classic RL framework, an agent learn a policy $\pi_{\theta_A}(a \mid s)$ to
 ![image](https://github.com/basileplus/sac-rsa/assets/115778954/7ff56abc-a58c-4429-9ae5-763c06ad6c21)
 *Figure 3: Detailed view of SAC-RSA model, showing Speaker as Actor and Listener as Critic*
 
-In SAC, the agent (the speaker) learns a policy $\pi_{\theta_A}(a \mid s)$ to minimize the loss function $\mathcal{L}\_{\text{actor}}$. The critic (the listener) learns a value function $Q_{\theta_C}(a,s)$ to minimize the loss function $\mathcal{L}\_\text{critic}$ $\mathcal{L}_\text{critic}$. The actor uses the value learned by the critic to update its policy. 
+In SAC, the agent (the speaker) learns a policy $\pi_{\theta_A}(a \mid s)$ to minimize the loss function $\mathcal{L}\_{\text{actor}}$. The critic (the listener) learns a value function $Q_{\theta_C}(a,s)$ to minimize the loss function $\mathcal{L}_\text{critic}$. The actor uses the value learned by the critic to update its policy. 
 
 In SAC-RSA model, we do not really learn from an environment (which could be an unknown listener for instance). We fake a Reinforcement Learning setup to show the parallel between RSA and RL. The environment is actually useless because it is an exact copy of the critic : the environment do not provide the agent any additional information.
 
@@ -131,7 +131,7 @@ class Actor:
 ```
 Parameters are learned using stochastic gradient descent on the actor loss function defined as :
 $$
-\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
+\mathcal{L}\_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
 $$
 
 ### Critic (Listener)
@@ -162,7 +162,7 @@ class Critic:
 
 Parameters are learned using stochastic gradient descent on the critic loss function defined as :
 $$
-\mathcal{L}_{\text{critic}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
+\mathcal{L}\_{\text{critic}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
 $$ 
 ### Soft Actor Critic
 
@@ -183,7 +183,7 @@ class SAC:
         self.critic.update_theta()
         self.critic.update_pol()
 ```
-May have notice that $\mathcal{L}_{\text{actor}}$ and $\mathcal{L}_{\text{critic}}$ are the same. We chose to use ``.detach()`` method of pytorch to update actor policy then critic policy. We could also have done a single gradient descent on a parameter $\theta = (\theta_A, \theta_C)$, but the Soft Actor Critic would have been less explicit.
+May have notice that $\mathcal{L}\_{\text{actor}}$ and $\mathcal{L}_{\text{critic}}$ are the same. We chose to use ``.detach()`` method of pytorch to update actor policy then critic policy. We could also have done a single gradient descent on a parameter $\theta = (\theta_A, \theta_C)$, but the Soft Actor Critic would have been less explicit.
 ## Environment
 
 An environment class is implemented to simulate the interaction between the speaker and listener. In the present case it is not really useful but is included to understand the parallel which can be drawn between RL and RSA.
