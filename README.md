@@ -130,17 +130,9 @@ class Actor:
         self.optimizer.step()
 ```
 Parameters are learned using stochastic gradient descent on the actor loss function defined as :
-$$
-\mathcal{L}\_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
-$$ ji
-\(
-\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
-\) ji
-\[
-\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
-\]
+
 ```math
-\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q\_{\theta_C}(a,s) + H\_s(\pi_{\theta_A})\right)
+\mathcal{L}_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
 ```
 
 ### Critic (Listener)
@@ -170,9 +162,9 @@ class Critic:
 ```
 
 Parameters are learned using stochastic gradient descent on the critic loss function defined as :
-$$
+```math
 \mathcal{L}\_{\text{critic}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
-$$ 
+```
 ### Soft Actor Critic
 
 We added a SAC class to handle the update the actor and critic:
@@ -192,7 +184,7 @@ class SAC:
         self.critic.update_theta()
         self.critic.update_pol()
 ```
-May have notice that $\mathcal{L}\_{\text{actor}}$ and $\mathcal{L}_{\text{critic}}$ are the same. We chose to use ``.detach()`` method of pytorch to update actor policy then critic policy. We could also have done a single gradient descent on a parameter $\theta = (\theta_A, \theta_C)$, but the Soft Actor Critic would have been less explicit.
+May have notice that $`\mathcal{L}\_{\text{actor}}`$ and $`\mathcal{L}_{\text{critic}}`$ are the same. We chose to use ``.detach()`` method of pytorch to update actor policy then critic policy. We could also have done a single gradient descent on a parameter $`\theta = (\theta_A, \theta_C)`$, but the Soft Actor Critic would have been less explicit.
 ## Environment
 
 An environment class is implemented to simulate the interaction between the speaker and listener. In the present case it is not really useful but is included to understand the parallel which can be drawn between RL and RSA.
