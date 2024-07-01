@@ -55,7 +55,7 @@ In a classic RL framework, an agent learn a policy $\pi_{\theta_A}(a \mid s)$ to
 ![image](https://github.com/basileplus/sac-rsa/assets/115778954/7ff56abc-a58c-4429-9ae5-763c06ad6c21)
 *Figure 3: Detailed view of SAC-RSA model, showing Speaker as Actor and Listener as Critic*
 
-In SAC, the agent (the speaker) learns a policy $\pi_{\theta_A}(a \mid s)$ to minimize the loss function $\mathcal{L}_\text{actor}$. The critic (the listener) learns a value function $Q _{\theta_C}(a,s)$ to minimize the loss function $\mathcal{L}_{\text{critic}}$. The actor uses the value learned by the critic to update its policy. 
+In SAC, the agent (the speaker) learns a policy $\pi_{\theta_A}(a \mid s)$ to minimize the loss function $\mathcal{L}_\text{actor}$. The critic (the listener) learns a value function $Q_{\theta_C}(a,s)$ to minimize the loss function $\mathcal{L}_\text{critic}$. The actor uses the value learned by the critic to update its policy. 
 
 In SAC-RSA model, we do not really learn from an environment (which could be an unknown listener for instance). We fake a Reinforcement Learning setup to show the parallel between RSA and RL. The environment is actually useless because it is an exact copy of the critic : the environment do not provide the agent any additional information.
 
