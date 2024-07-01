@@ -131,8 +131,8 @@ class Actor:
 ```
 Parameters are learned using stochastic gradient descent on the actor loss function defined as :
 $$
-\mathcal{L}\_{\text{actor}} = -\sum_{s}P(s)\left(\sum_{a}\pi_{\theta_A}(a|s)Q_{\theta_C}(a,s) + H_s(\pi_{\theta_A})\right)
-$$
+\mathcal{L}\_{\text{actor}} = -\sum\_{s}P(s)\left(\sum\_{a}\pi\_{\theta\_A}(a|s)Q\_{\theta\_C}(a,s) + H\_s(\pi\_{\theta\_A})\right)
+$$ ji
 
 ### Critic (Listener)
 
